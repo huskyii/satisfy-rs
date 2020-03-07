@@ -1,0 +1,81 @@
+const LIB_PATH: &str = "cadical-rel-1.2.1/src";
+
+fn main() {
+    // delete ipasir.cpp cadical.cpp mobical.cpp
+    let src_files = [
+        "cadical-rel-1.2.1/src/analyze.cpp",
+        "cadical-rel-1.2.1/src/arena.cpp",
+        "cadical-rel-1.2.1/src/assume.cpp",
+        "cadical-rel-1.2.1/src/averages.cpp",
+        "cadical-rel-1.2.1/src/backtrack.cpp",
+        "cadical-rel-1.2.1/src/backward.cpp",
+        "cadical-rel-1.2.1/src/bins.cpp",
+        "cadical-rel-1.2.1/src/block.cpp",
+        "cadical-rel-1.2.1/src/ccadical.cpp",
+        "cadical-rel-1.2.1/src/checker.cpp",
+        "cadical-rel-1.2.1/src/clause.cpp",
+        "cadical-rel-1.2.1/src/collect.cpp",
+        "cadical-rel-1.2.1/src/compact.cpp",
+        "cadical-rel-1.2.1/src/condition.cpp",
+        "cadical-rel-1.2.1/src/config.cpp",
+        "cadical-rel-1.2.1/src/cover.cpp",
+        "cadical-rel-1.2.1/src/decide.cpp",
+        "cadical-rel-1.2.1/src/decompose.cpp",
+        "cadical-rel-1.2.1/src/deduplicate.cpp",
+        "cadical-rel-1.2.1/src/elim.cpp",
+        "cadical-rel-1.2.1/src/ema.cpp",
+        "cadical-rel-1.2.1/src/extend.cpp",
+        "cadical-rel-1.2.1/src/external.cpp",
+        "cadical-rel-1.2.1/src/file.cpp",
+        "cadical-rel-1.2.1/src/flags.cpp",
+        "cadical-rel-1.2.1/src/format.cpp",
+        "cadical-rel-1.2.1/src/gates.cpp",
+        "cadical-rel-1.2.1/src/instantiate.cpp",
+        "cadical-rel-1.2.1/src/internal.cpp",
+        "cadical-rel-1.2.1/src/limit.cpp",
+        "cadical-rel-1.2.1/src/logging.cpp",
+        "cadical-rel-1.2.1/src/lucky.cpp",
+        "cadical-rel-1.2.1/src/message.cpp",
+        "cadical-rel-1.2.1/src/minimize.cpp",
+        "cadical-rel-1.2.1/src/occs.cpp",
+        "cadical-rel-1.2.1/src/options.cpp",
+        "cadical-rel-1.2.1/src/parse.cpp",
+        "cadical-rel-1.2.1/src/phases.cpp",
+        "cadical-rel-1.2.1/src/probe.cpp",
+        "cadical-rel-1.2.1/src/profile.cpp",
+        "cadical-rel-1.2.1/src/proof.cpp",
+        "cadical-rel-1.2.1/src/propagate.cpp",
+        "cadical-rel-1.2.1/src/queue.cpp",
+        "cadical-rel-1.2.1/src/random.cpp",
+        "cadical-rel-1.2.1/src/reduce.cpp",
+        "cadical-rel-1.2.1/src/rephase.cpp",
+        "cadical-rel-1.2.1/src/report.cpp",
+        "cadical-rel-1.2.1/src/resources.cpp",
+        "cadical-rel-1.2.1/src/restart.cpp",
+        "cadical-rel-1.2.1/src/restore.cpp",
+        "cadical-rel-1.2.1/src/score.cpp",
+        "cadical-rel-1.2.1/src/signal.cpp",
+        "cadical-rel-1.2.1/src/solution.cpp",
+        "cadical-rel-1.2.1/src/solver.cpp",
+        "cadical-rel-1.2.1/src/stats.cpp",
+        "cadical-rel-1.2.1/src/subsume.cpp",
+        "cadical-rel-1.2.1/src/terminal.cpp",
+        "cadical-rel-1.2.1/src/ternary.cpp",
+        "cadical-rel-1.2.1/src/tracer.cpp",
+        "cadical-rel-1.2.1/src/transred.cpp",
+        "cadical-rel-1.2.1/src/util.cpp",
+        "cadical-rel-1.2.1/src/var.cpp",
+        "cadical-rel-1.2.1/src/version.cpp",
+        "cadical-rel-1.2.1/src/vivify.cpp",
+        "cadical-rel-1.2.1/src/walk.cpp",
+        "cadical-rel-1.2.1/src/watch.cpp",
+    ];
+    cc::Build::new()
+        .cpp(true)
+        .include(LIB_PATH)
+        .define("NDEBUG", None)
+        .define("NBUILD", None)
+        // .define("QUIET", None)
+        .files(src_files.iter())
+        .compile("cadical");
+}

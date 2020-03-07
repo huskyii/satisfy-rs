@@ -1,0 +1,11 @@
+[package]
+name = "cadical"
+version = "0.1.0"
+authors = ["Jiang Zhu <jiang.moe@outlook.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["lib"]
+
+[dependencies]
+cadical-sys = { version = "0.1", path = "../cadical-sys"}

@@ -1,0 +1,12 @@
+[package]
+name = "cadical-sys"
+version = "0.1.0"
+authors = ["Jiang Zhu <jiang.moe@outlook.com>"]
+edition = "2018"
+build = "build.rs"
+
+[lib]
+crate-type = ["lib"]
+
+[build-dependencies]
+cc = { version = "1.0", features = ["parallel"] }
